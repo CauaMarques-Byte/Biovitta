@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+    <section id="contato" class="agendamento container">
+        <h2 class="titulo-sessao">Agende sua Consulta</h2>
+        <div class="form-container">
+            <form id="appointment-form">
+                <div class="input-group">
+                    <input type="text" placeholder="Seu Nome Completo" required>
+                    <input type="tel" placeholder="Seu Telefone" required>
+                </div>
+                <div class="input-group">
+                    <select required>
+                        <option value="" disabled selected>Escolha a Especialidade</option>
+                        <option value="cardio">Cardiologia</option>
+                        <option value="pedia">Pediatria</option>
+                        <option value="orto">Ortopedia</option>
+                    </select>
+                    <input type="date" required>
+                </div>
+                <textarea placeholder="Alguma observação importante?" rows="4"></textarea>
+                <button type="submit" class="btn-enviar">Solicitar Agendamento</button>
+            </form>
+        </div>
+    </section>
+
+</body>
+</html>

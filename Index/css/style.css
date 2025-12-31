@@ -1036,53 +1036,6 @@ section {
   }
 }
 
-.loading {
-  display: none; /* escondido inicialmente */
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background: #f9f9f9;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 9999;
-}
-
-.heart {
-  width: 60px;
-  height: 60px;
-  background-color: #e74c3c;
-  position: relative;
-  transform: rotate(-45deg);
-  animation: pulse 1s infinite;
-}
-
-.heart::before,
-.heart::after {
-  content: "";
-  width: 60px;
-  height: 60px;
-  background-color: #e74c3c;
-  border-radius: 50%;
-  position: absolute;
-}
-
-.heart::before { top: -30px; left: 0; }
-.heart::after { left: 30px; top: 0; }
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1) rotate(-45deg); }
-  50% { transform: scale(1.2) rotate(-45deg); }
-}
-
-.loading p {
-  margin-top: 20px;
-  font-size: 1.2rem;
-  color: #555;
-}
-
 .whatsapp-float {
   position: fixed;
   bottom: 20px;

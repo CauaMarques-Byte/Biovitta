@@ -31,11 +31,6 @@
   </div>
 </header>
 
-<div id="loading" class="loading">
-  <div class="heart"></div>
-  <p>Carregando...</p>
-</div>
-
      <section class="hero">
         <div class="container">
             <h1>Cuidando de você em todos os momentos.</h1>
@@ -238,23 +233,7 @@
     <p><a href="#">Política de privacidade</a> | Feito por: DCM Digital MKT Médico</p>
   </div>
 </footer>
-<script>
-    const swiper = new Swiper(".mySwiperHero", {
-        loop: true,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-    });
-</script>
+
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const items = document.querySelectorAll(".item-estrutura");
@@ -294,27 +273,6 @@
 
     blocos.forEach(bloco => observer.observe(bloco));
   });
-</script>
-
-<script>
-  function mostrarLoading() {
-    document.getElementById("loading").style.display = "flex";
-  }
-
-  function esconderLoading() {
-    document.getElementById("loading").style.display = "none";
-  }
-
-  // Exemplo: simular carregamento de 3 segundos
-  function carregarPagina() {
-    mostrarLoading();
-    setTimeout(() => {
-      esconderLoading();
-      alert("Página carregada!");
-    }, 3000);
-  }
-
-  // Você pode chamar carregarPagina() quando clicar em um botão ou mudar de rota
 </script>
 </body>
 </html>

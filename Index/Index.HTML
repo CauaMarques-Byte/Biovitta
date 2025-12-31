@@ -4,27 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clínica Biovitta</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <nav class="container">
-            <div class="logo">
-                <img src="imagens/Logomarca.png" width="280" height="60" alt="Clínica Biovitta">
-            </div>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#servicos">Especialidades</a></li>
-                <li><a href="#servicos">Sobre</a></li>
-                <li><a href="convenio.html">Convênio</a></li>
-                <li><a href="#" class="btn-agendar">Agendar Consulta</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header class="cabecalho">
+  <div class="container">
+    <div class="logo">Biovitta</div>
+    <nav class="menu">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#especialidades">Especialidades</a></li>
+        <li><a href="#sobre">Quem Somos</a></li>
+        <li><a href="#convenios">Convênios</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li><a href="#blog">Blog</a></li>
+      </ul>
+    </nav>
+    <div class="redes">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </div>
+</header>
 
-    <section class="hero">
+<div id="loading" class="loading">
+  <div class="heart"></div>
+  <p>Carregando...</p>
+</div>
+
+     <section class="hero">
         <div class="container">
             <h1>Cuidando de você em todos os momentos.</h1>
             <p>Tecnologia de ponta e atendimento humanizado para sua saúde.</p>
@@ -32,25 +44,103 @@
         </div>
     </section>
 
-    <section class="galeria container">
-        <h2 class="titulo-sessao">Nossa Estrutura</h2>
-        <div class="grid-galeria">
-            <div class="item-estrutura">
-                <img src="imagens/Recepcao.jpeg" alt="Recepção Biovitta">
-                <p>Uma recepção estruturada com conforto e qualidade</p>
-            </div>
+    <a href="https://wa.me/5561985635334" class="whatsapp-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+  <span>Fale Conosco</span>
+</a>
 
-            <div class="item-estrutura">
-                <img src="imagens/Procedimento.jpeg" alt="Consultório Médico">
-                <p>Consultórios harmoniosos para atender da melhor maneira. Realizamos procedimentos dermatológicos e exames cardíacos.</p>
-            </div>
-
-            <div class="item-estrutura">
-                <img src="imagens/Sala-de-espera.jpeg" alt="Sala de Espera">
-                <p>Sala de espera próxima aos consultórios para facilitar o atendimento.</p>
-            </div>
+<section class="secao-exames container">
+  <div class="exames-layout">
+    <div class="exames-texto">
+      <h2 class="titulo-sessao">Exames</h2>
+      <div class="grid-exames">
+        <div class="card-exame">
+          <h3>Eletroencefalograma</h3>
+          <p>Analisa a atividade elétrica cerebral espontânea com eletrodos no couro cabeludo. Indicado para todas as idades.</p>
         </div>
-    </section>
+        <div class="card-exame">
+          <h3>Doppler Transcraniano</h3>
+          <p>Exame não-invasivo que avalia o fluxo sanguíneo nas artérias cerebrais em tempo real.</p>
+        </div>
+        <div class="card-exame">
+          <h3>Eletroneuromiografia (ENMG)</h3>
+          <p>Avalia nervos e músculos, identificando lesões ou doenças neuromusculares.</p>
+        </div>
+      </div>
+    </div>
+    <div class="exames-imagem">
+      <img src="imagens/exames-cardio.jpeg" alt="Exames de Cardiologia Biovitta">
+    </div>
+  </div>
+</section>
+
+<section class="secao-convenios container">
+  <div class="layout-convenios">
+    <div class="imagem-convenio">
+      <img src="imagens/convenio.jpeg" alt="Parceria e convênios médicos">
+    </div>
+    <div class="texto-convenio">
+      <h2>Convênios</h2>
+      <p>Aceitamos os seguintes convênios:</p>
+      <ul class="lista-convenios">
+        <li>AFEB BRASAL</li>
+        <li>AFFEGO</li>
+        <li>ANAFE SAÚDE</li>
+        <li>AMIL (Luiz Cláudio e Márcio Vinhal)</li>
+        <li>ASSEFAZ</li>
+        <li>BACEN</li>
+        <li>BRB SAÚDE</li>
+        <li>CAEME - GO</li>
+        <li>CAESAN</li>
+        <li>CAMED</li>
+        <li>CARE PLUS</li>
+        <li>CASEMBRAPA</li>
+        <li>CASSI</li>
+        <li>CBMDF</li>
+        <li>CONAB</li>
+        <li>FUSEX</li>
+        <li>GDF SAÚDE</li>
+        <li>OMINT SAÚDE</li>
+        <li>PF SAÚDE</li>
+        <li>PLAN ASSISTE</li>
+        <li>PRÓ-SAÚDE (TJDFT)</li>
+        <li>REAL GRANDEZA</li>
+        <li>SAÚDE CAIXA</li>
+        <li>SUL AMÉRICA</li>
+        <li>UNAFISCO</li>
+        <!-- Adicione mais conforme necessário -->
+      </ul>
+      <a href="#agendamento" class="btn-agendar">Agendar Consulta</a>
+    </div>
+  </div>
+</section>
+
+    <section class="galeria container">
+  <h2 class="titulo-sessao">Quem Somos Nós</h2>
+  <div class="grid-galeria">
+    <div class="separador">
+  <div class="separador-icon">🩺</div>
+</div>
+    <div class="item-estrutura">
+      <img src="imagens/Recepcao.jpeg" alt="Recepção Biovitta">
+      <h3>Recepção Confortável</h3>
+      <p>Uma recepção estruturada com conforto e qualidade.</p>
+    </div>
+
+    <div class="item-estrutura">
+      <img src="imagens/Procedimento.jpeg" alt="Consultório Médico">
+      <h3>Consultórios Harmoniosos</h3>
+      <p>Realizamos procedimentos dermatológicos e exames cardíacos.</p>
+    </div>
+
+    <div class="item-estrutura">
+      <img src="imagens/Sala-de-espera.jpeg" alt="Sala de Espera">
+      <h3>Sala de Espera</h3>
+      <p>Próxima aos consultórios para facilitar o atendimento.</p>
+    </div>
+  </div>
+</section>
+
 
     <section id="servicos" class="container">
         <h2 class="titulo-sessao">Nossas Especialidades</h2>
@@ -106,9 +196,125 @@
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2025 Clínica Biovitta. Todos os direitos reservados.</p>
-    </footer>
+    <footer class="rodape">
+  <div class="rodape-container">
+    <div class="rodape-coluna">
+      <h3>BIOVITTA</h3>
+      <p>Instituto referência em saúde e bem-estar.</p>
+      <div class="redes-sociais">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
 
+    <div class="rodape-coluna">
+      <h4>Navegue</h4>
+      <ul>
+        <li><a href="#especialidades">Especialidades</a></li>
+        <li><a href="#exames">Exames</a></li>
+        <li><a href="#tratamentos">Tratamentos</a></li>
+        <li><a href="#convenios">Convênios</a></li>
+        <li><a href="#equipe">Equipe Médica</a></li>
+        <li><a href="#blog">Blog</a></li>
+      </ul>
+
+      <h4>Contato</h4>
+      <p>📞 (61) 3246-9494</p>
+      <p>📞 (61) 98563-5334</p>
+      <p>📧 <a href="mailto:contato@biovitta.com.br">Enviar e-mail</a></p>
+    </div>
+
+    <div class="rodape-coluna">
+      <h4>Endereço e horário</h4>
+      <p>ASA SUL: SHLS 716 Centro Clínico Sul, Torre-II, Sala 111, Brasília/DF</p>
+      <p>📍 Seg. à Sex no horário comercial. Atendimento somente com hora marcada.</p>
+      <p>📄 Entrega de exames: Seg. à Sex. de 8h às 17h.</p>
+    </div>
+  </div>
+
+  <div class="rodape-final">
+    <p>Copyright © 2025 Biovitta, todos os direitos reservados.</p>
+    <p><a href="#">Política de privacidade</a> | Feito por: DCM Digital MKT Médico</p>
+  </div>
+</footer>
+<script>
+    const swiper = new Swiper(".mySwiperHero", {
+        loop: true,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const items = document.querySelectorAll(".item-estrutura");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          // aplica delay em cascata
+          entry.target.style.animationDelay = `${index * 0.3}s`;
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target); // anima só uma vez
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    items.forEach(item => {
+      observer.observe(item);
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const blocos = document.querySelectorAll(".institucional-bloco");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          entry.target.style.transitionDelay = `${index * 0.2}s`;
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    blocos.forEach(bloco => observer.observe(bloco));
+  });
+</script>
+
+<script>
+  function mostrarLoading() {
+    document.getElementById("loading").style.display = "flex";
+  }
+
+  function esconderLoading() {
+    document.getElementById("loading").style.display = "none";
+  }
+
+  // Exemplo: simular carregamento de 3 segundos
+  function carregarPagina() {
+    mostrarLoading();
+    setTimeout(() => {
+      esconderLoading();
+      alert("Página carregada!");
+    }, 3000);
+  }
+
+  // Você pode chamar carregarPagina() quando clicar em um botão ou mudar de rota
+</script>
 </body>
 </html>

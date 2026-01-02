@@ -1748,3 +1748,17 @@ section {
         padding: 12px 0;
     }
 }
+
+/* Isso vai esconder o botão hamburguer em telas de computador */
+.hamburger {
+    display: none !important;
+}
+
+/* Se você quiser que ele apareça APENAS no celular, use assim: */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex !important; /* Ou 'block' dependendo do seu layout */
+        flex-direction: column;
+        justify-content: space-around;
+    }
+}

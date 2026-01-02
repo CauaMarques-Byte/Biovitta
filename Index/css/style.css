@@ -21,6 +21,8 @@
 
 html {
     scroll-behavior: smooth;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -29,6 +31,7 @@ body {
     color: var(#333);
     background-color: #fff;
     overflow-x: hidden;
+    width: 100%;
 }
 
 .container {
@@ -1355,4 +1358,110 @@ section {
   height: auto !important;
   padding: 0 !important;
   box-shadow: none !important;
+}
+
+@media (max-width: 768px) {
+
+  .cabecalho {
+    width: 100%;
+  }
+
+  .cabecalho .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+  }
+
+  .logo img {
+    width: 180px;
+    height: auto;
+  }
+
+  .menu {
+    display: none; /* menu desktop some */
+  }
+
+  .redes {
+    display: none; /* redes ficam no menu hamburguer */
+  }
+}
+
+@media (max-width: 768px) {
+
+  .hero,
+  .banner,
+  .swiper,
+  .swiper-slide {
+    width: 100%;
+    height: 75vh;
+  }
+
+  .hero img,
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero .conteudo {
+    padding: 0 16px;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  section {
+    padding: 40px 16px;
+  }
+
+  h2 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  p, li {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .lista-convenios,
+  .convenios,
+  .quem-somos {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .quem-somos .cards,
+  .quem-somos .grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .quem-somos img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+@media (max-width: 768px) {
+  .whatsapp-fixo {
+    bottom: 20px;
+    right: 16px;
+    z-index: 999;
+  }
+
+  footer {
+    padding-bottom: 100px;
+  }
 }

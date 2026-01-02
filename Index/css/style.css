@@ -68,6 +68,7 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  position: relative;
 }
 
 .logo {
@@ -111,6 +112,179 @@ body {
 
 .hero {
   background-attachment: fixed;
+}
+
+.menu-desktop {
+  display: flex;
+  align-items: center;
+}
+
+.menu-desktop ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-desktop a {
+  color: #0d47a1;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+  position: relative;
+  padding: 5px 0;
+}
+
+.menu-desktop a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #1565c0;
+  left: 0;
+  bottom: 0;
+  transition: width 0.3s ease;
+}
+
+.menu-desktop a:hover::after {
+  width: 100%;
+}
+
+.menu-desktop a:hover {
+  color: #1565c0;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1001;
+  background: none;
+  border: none;
+  padding: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: var(--cor-primaria);
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* =========================================
+   MENU MOBILE - ESCONDIDO POR PADRÃO
+   ========================================= */
+.menu-mobile {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -10px 0 30px rgba(0,0,0,.1);
+  padding: 90px 30px 30px;
+  transition: right 0.4s ease;
+  z-index: 999;
+}
+
+.menu-mobile.active {
+  right: 0;
+  display: block;
+}
+
+.menu-mobile ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-mobile ul li {
+  margin-bottom: 15px;
+}
+
+.menu-mobile a {
+  display: block;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--cor-texto);
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.menu-mobile a:hover {
+  color: var(--cor-primaria);
+}
+
+/* Overlay do menu mobile */
+.menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 998;
+}
+
+.menu-overlay.active {
+  display: block;
+}
+
+/* =========================================
+   MEDIA QUERIES - VERSÃO MOBILE
+   ========================================= */
+
+/* Tablet (768px para baixo) */
+@media (max-width: 768px) {
+  /* Esconder menu desktop no mobile */
+  .menu-desktop {
+    display: none !important;
+  }
+  
+  /* Mostrar hamburguer no mobile */
+  .hamburger {
+    display: flex;
+  }
+  
+  /* Mostrar menu mobile quando ativo */
+  .menu-mobile.active {
+    display: block;
+  }
+  
+  .logo img {
+    max-width: 150px;
+  }
+}
+
+/* Mobile pequeno (480px para baixo) */
+@media (max-width: 480px) {
+  .menu-mobile {
+    width: 250px;
+    padding: 80px 20px 20px;
+  }
+  
+  .logo img {
+    max-width: 130px;
+  }
 }
 
 .redes a {
@@ -1464,4 +1638,113 @@ section {
   footer {
     padding-bottom: 100px;
   }
+}
+
+/* Ajuste para quando o teclado estiver aberto no mobile */
+@media (max-height: 500px) and (max-width: 768px) {
+    .hero {
+        height: auto;
+        min-height: auto;
+        padding: 40px 20px;
+    }
+    
+    .menu-mobile {
+        padding-top: 60px;
+    }
+}
+
+/* Desativar animações pesadas no mobile */
+@media (max-width: 768px) {
+    * {
+        animation-duration: 0.3s !important;
+    }
+    
+    .card::before,
+    .btn-principal::after,
+    .btn-agendar::after {
+        display: none;
+    }
+    
+    .hero {
+        background-attachment: scroll !important;
+    }
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 360px) {
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+    
+    .btn-principal,
+    .btn-agendar {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .menu-mobile {
+        width: 250px;
+        padding: 70px 20px 20px;
+    }
+}
+
+    /* Hero */
+    .hero {
+        height: 50vh;
+        min-height: 300px;
+    }
+    
+    .hero h1 {
+        font-size: 1.7rem;
+    }
+    
+    .hero p {
+        font-size: 0.95rem;
+    }
+    
+    /* Seções */
+    section {
+        padding: 30px 12px;
+    }
+    
+    .titulo-sessao {
+        font-size: 1.6rem;
+    }
+    
+    /* Container */
+    .container {
+        padding: 0 12px;
+    }
+    
+    /* Cards */
+    .card {
+        padding: 20px 15px;
+    }
+    
+    .card-img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    /* WhatsApp */
+    .whatsapp-float {
+        padding: 8px 14px;
+        font-size: 13px;
+        bottom: 12px;
+        right: 12px;
+    }
+    
+    .whatsapp-float span {
+        display: none;
+    }
+    
+    .whatsapp-float i {
+        font-size: 24px;
+    }
+
+    @media (max-width: 480px) {
+    /* Header */
+    .cabecalho {
+        padding: 12px 0;
+    }
 }

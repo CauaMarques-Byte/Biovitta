@@ -16,34 +16,47 @@
   <div class="spinner"></div>
 </div>
 
-    <header class="cabecalho">
+<header class="cabecalho">
   <div class="container">
-    <div class="logo"><img src="imagens/Logomarca.png" height="58px" width="270px" alt=""></div>
-    <nav class="menu">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="caminho/para/seu-logo.png" alt="Logo Clínica">
+    </div>
+    
+    <!-- Menu Desktop (visível apenas em telas grandes) -->
+    <nav class="menu-desktop">
       <ul>
-        <li><a href="#">Home</a></li>
+        <li><a href="#home">Home</a></li>
         <li><a href="#especialidades">Especialidades</a></li>
-        <li><a href="#sobre">Quem Somos</a></li>
+        <li><a href="#quem-somos">Quem Somos</a></li>
         <li><a href="#convenios">Convênios</a></li>
         <li><a href="#contato">Contato</a></li>
         <li><a href="#blog">Blog</a></li>
       </ul>
     </nav>
-    <div class="redes">
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="https://wa.me/5561993217218"><i class="fab fa-whatsapp"></i></a>
-    </div>
+    
+    <!-- Hamburger Menu (visível apenas no mobile) -->
+    <button class="hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    
+    <!-- Menu Mobile (escondido por padrão) -->
+    <nav class="menu-mobile">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#especialidades">Especialidades</a></li>
+        <li><a href="#quem-somos">Quem Somos</a></li>
+        <li><a href="#convenios">Convênios</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li><a href="#blog">Blog</a></li>
+      </ul>
+    </nav>
+    
+    <!-- Overlay do menu -->
+    <div class="menu-overlay"></div>
   </div>
-
-  <!-- HAMBURGUER MOBILE -->
-<div class="menu-mobile">
-  <div class="hamburger" id="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-
 </header>
 
      <section class="hero">
@@ -351,23 +364,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 </script>
-<script>
-const navMobile = document.getElementById("navMobile");
 
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
-  navMobile.classList.toggle("open");
-  document.body.classList.toggle("no-scroll");
-});
-
-document.querySelectorAll(".nav-mobile a").forEach(link => {
-  link.addEventListener("click", () => {
-    hamburger.classList.remove("active");
-    navMobile.classList.remove("open");
-    document.body.classList.remove("no-scroll");
-  });
-});
-</script>
 <script>
 window.addEventListener("load", () => {
   const loader = document.getElementById("loader");
@@ -377,12 +374,61 @@ window.addEventListener("load", () => {
 });
 </script>
 <script>
-const hamburger = document.getElementById("hamburger");
-const menu = document.querySelector(".menu");
+    // Menu Mobile Toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger');
+    const menuMobile = document.querySelector('.menu-mobile');
+    const menuOverlay = document.querySelector('.menu-overlay');
+    const body = document.body;
 
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
-  menu.classList.toggle("menu-aberto");
+    if (hamburger) {
+        hamburger.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            this.classList.toggle('active');
+            menuMobile.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            
+            // Prevenir scroll quando menu está aberto
+            if (this.classList.contains('active')) {
+                body.style.overflow = 'hidden';
+            } else {
+                body.style.overflow = '';
+            }
+        });
+    }
+
+    // Fechar menu ao clicar no overlay
+    if (menuOverlay) {
+        menuOverlay.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            menuMobile.classList.remove('active');
+            this.classList.remove('active');
+            body.style.overflow = '';
+        });
+    }
+
+    // Fechar menu ao clicar em um link
+    const menuLinks = document.querySelectorAll('.menu-mobile a');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            menuMobile.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            body.style.overflow = '';
+        });
+    });
+
+    // Fechar menu ao pressionar ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && menuMobile.classList.contains('active')) {
+            hamburger.classList.remove('active');
+            menuMobile.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            body.style.overflow = '';
+        }
+    });
 });
 </script>
 

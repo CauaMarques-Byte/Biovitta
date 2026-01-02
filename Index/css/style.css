@@ -1,3 +1,15 @@
+/* =====================================================
+   VARIÁVEIS GLOBAIS
+===================================================== */
+:root {
+  --cor-primaria: #3498db;
+  --cor-secundaria: #2ecc71;
+  --cor-texto: #2c3e50;
+  --cor-bg: #f9f9f9;
+  --sombra-suave: 0 6px 18px rgba(0,0,0,.08);
+  --radius: 12px;
+}
+
 /* =========================================
    1. RESET E CONFIGURAÇÕES GERAIS
    ========================================= */
@@ -14,8 +26,9 @@ html {
 body {
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: var(#333);
     background-color: #fff;
+    overflow-x: hidden;
 }
 
 .container {
@@ -34,6 +47,17 @@ body {
   padding: 20px 0;
   color: #0d47a1;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  box-shadow: var(--sombra-suave);
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.cabecalho.scrolled {
+  background: rgba(227, 242, 253, 0.95);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 10px 0;
 }
 
 .cabecalho .container {
@@ -44,7 +68,7 @@ body {
 }
 
 .logo {
-  font-size: 1.8rem;
+  font-size: 0.8rem;
   font-weight: bold;
   color: #0d47a1;
 }
@@ -60,10 +84,30 @@ body {
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
+  position: relative;
+}
+
+.menu a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #1565c0;
+  left: 0;
+  bottom: -5px;
+  transition: width 0.3s ease;
+}
+
+.menu a:hover::after {
+  width: 100%;
 }
 
 .menu a:hover {
   color: #1565c0;
+}
+
+.hero {
+  background-attachment: fixed;
 }
 
 .redes a {
@@ -102,7 +146,27 @@ body {
   color: #555;
 }
 
+.btn-principal::after,
+.btn-agendar::after {
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: 100%;
+  background: rgba(255,255,255,0.2);
+  top: 0;
+  left: -130%;
+  transform: skewX(-20deg);
+  transition: left 0.6s;
+}
+
+.btn-principal:hover::after,
+.btn-agendar:hover::after {
+  left: 130%;
+}
+
 .btn-principal {
+    position: relative;
+    overflow: hidden;
     display: inline-block;
     padding: 15px 35px;
     background-color: #2ecc71;
@@ -839,7 +903,9 @@ section {
 }
 
 .card-exame {
-  background: #fff;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 10px;
   padding: 25px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
@@ -930,6 +996,8 @@ section {
   text-decoration: none;
   font-weight: bold;
   transition: background 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-agendar:hover {
@@ -1097,5 +1165,192 @@ section {
 @media (max-width: 768px) {
   .whatsapp-float {
     display: flex;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .whatsapp-float {
+    display: flex;
+  }
+}
+
+/* =====================================================
+   ANIMAÇÕES
+===================================================== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* =====================================================
+   MOBILE PERFORMANCE
+===================================================== */
+@media (max-width: 768px) {
+  * {
+    animation-duration: .6s !important;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+}
+
+/* =========================
+   MENU MOBILE
+========================= */
+.menu-mobile {
+  display: none;
+}
+
+.hamburger {
+  width: 30px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 100%;
+  background: var(--cor-primaria);
+  border-radius: 3px;
+  transition: all .4s ease;
+}
+
+/* Estado ativo */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px,5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px,-6px);
+}
+
+/* Menu lateral */
+.nav-mobile {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 75%;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -10px 0 30px rgba(0,0,0,.1);
+  padding: 80px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: right .4s ease;
+  z-index: 999;
+}
+
+.nav-mobile a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--cor-texto);
+}
+
+.nav-mobile.open {
+  right: 0;
+}
+
+/* MOBILE ONLY */
+@media (max-width: 768px) {
+  .menu ul {
+    display: none;
+  }
+  .menu-mobile {
+    display: block;
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+/* =========================
+   LOADER
+========================= */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  transition: opacity .6s ease, visibility .6s ease;
+}
+
+#loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 5px solid #eee;
+  border-top-color: var(--cor-primaria);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+
+  .menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    height: 100vh;
+    background: #fff;
+    padding: 90px 30px;
+    transition: right 0.4s ease;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+    z-index: 998;
+  }
+
+  .menu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .menu.menu-aberto {
+    right: 0;
   }
 }

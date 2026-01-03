@@ -1811,3 +1811,67 @@ a:active {
     transform: translateY(0);
   }
 }
+
+/* --- REGRA PARA ESCONDER NO MOBILE --- */
+@media (max-width: 768px) {
+  .somente-desktop {
+    display: none !important;
+  }
+}
+
+/* --- SEU CÓDIGO CONSOLIDADO (DESKTOP) --- */
+.item-estrutura {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  max-width: 350px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  /* Estado inicial para sua animação JS */
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  filter: blur(8px);
+}
+
+.item-estrutura.show {
+  animation: fadeZoomBlurInUp 1s ease forwards;
+}
+
+.item-estrutura:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.item-estrutura img {
+  width: 100%;
+  height: 220px; /* Altura fixa para alinhar os cards */
+  object-fit: cover;
+  display: block;
+}
+
+.item-estrutura h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 15px 0 5px;
+  color: #34495e;
+  text-align: center;
+}
+
+.item-estrutura p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  color: #555;
+  padding: 0 20px 20px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Definição da animação que você está usando no JS */
+@keyframes fadeZoomBlurInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
